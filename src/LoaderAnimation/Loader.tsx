@@ -7,7 +7,7 @@ import Animated, {
   withSpring,
 } from 'react-native-reanimated';
 
-export const Loader: FC<{}> = () => {
+export const Loader: FC<any> = () => {
   const progress = useSharedValue(0.5);
   const scale = useSharedValue(1);
   const animatedStyles = useAnimatedStyle(() => {
