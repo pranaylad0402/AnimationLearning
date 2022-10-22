@@ -37,7 +37,7 @@ export const DragAndDrop: FC<any> = () => {
     },
     onEnd: () => {
       const distance = Math.sqrt(translateX.value ** 2 + translateY.value ** 2);
-      if (distance < boundaryRadius) {
+      if (distance < boundaryRadius + innerBoxSize / 2) {
         translateX.value = withSpring(0);
         translateY.value = withSpring(0);
       }

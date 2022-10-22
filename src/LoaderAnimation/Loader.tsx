@@ -4,7 +4,7 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
-  withSpring,
+  withTiming,
 } from 'react-native-reanimated';
 
 export const Loader: FC<any> = () => {
@@ -21,8 +21,8 @@ export const Loader: FC<any> = () => {
     };
   }, []);
   useEffect(() => {
-    progress.value = withRepeat(withSpring(1), -1, true);
-    scale.value = withRepeat(withSpring(1.5), -1, true);
+    progress.value = withRepeat(withTiming(1, {duration: 500}), -1, true);
+    scale.value = withRepeat(withTiming(1.5, {duration: 500}), -1, true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
