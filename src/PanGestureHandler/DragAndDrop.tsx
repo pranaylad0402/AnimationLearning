@@ -36,7 +36,10 @@ export const DragAndDrop: FC<any> = () => {
       translateY.value = event.translationY + context.translateY;
     },
     onEnd: () => {
+      //Finding the distance calculated while dragging (Pythagoras theorem)
       const distance = Math.sqrt(translateX.value ** 2 + translateY.value ** 2);
+
+      //if distance is less than the boundary radius and inner box size/2 then it should come to initial position
       if (distance < boundaryRadius + innerBoxSize / 2) {
         translateX.value = withSpring(0);
         translateY.value = withSpring(0);
